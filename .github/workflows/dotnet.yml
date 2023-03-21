@@ -1,0 +1,25 @@
+name: .NET
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello message
+        run: echo "Hello gals and guys"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6'
+      - run: dotnet build
+        
+    
+   
