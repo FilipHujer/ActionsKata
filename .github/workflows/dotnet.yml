@@ -1,6 +1,10 @@
 name: .NET
 
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - main
+      - master
 
 jobs:
   welcome:
@@ -8,4 +12,15 @@ jobs:
     steps:
       - name: Hello message
         run: echo "Hello gals and guys"
-      
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+      - uses: actions/setup-dotnet@v3
+        with: 
+          dotnet-version: 6
+      - run: dotnet build 
+        
+    
+   
